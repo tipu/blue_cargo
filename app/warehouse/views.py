@@ -3,6 +3,7 @@ import redis
 
 redis = redis.Redis(host='localhost', port=6379, decode_responses=True)
 
+#TODO: need to store time in a timezone-agnostic way
 hours = {
     'whcorp': [
     ],
