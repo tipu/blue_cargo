@@ -1,21 +1,20 @@
 from html.parser import HTMLParser
-import requests
-
-VALID_DATA = ['OPEN', 'CLOSED']
+from .base import WarehouseBase
 
 class Parser(HTMLParser):
+    STATUSES = ['OPEN', 'CLOSED']
     def __init__(self):
         super().__init__()
-        self.result = []
+        self.statuses = []
 
     def handle_data(self, data):
-        if data in VALID_DATA:
-            self.result.append(data)
+        if data in Parser.STATUSES:
+            self.statuses.append(data)
 
-def run():
-    url = 'https://bluecargo.julink.fr/site1/index.html'
-    html = requests.get(url).text
-    parser = Parser()
-    parser.feed(html)
-
-    return parser.result
+class WHCorpWarehouse(WarehouseBase):
+    def __init__(self):
+        super().__init__('whcorp', 'https://bluecargo.julink.fr/site1/index.html', Parser())
+        self.status_map = {
+            'OPEN': 'Free',
+            'CLOSED': 'closed',
+        }
