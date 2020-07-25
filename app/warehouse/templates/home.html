@@ -11,6 +11,15 @@
         table, th, td {
             border: 1px solid black;
         }
+        .closed {
+            background-color: #FF6961;
+        }
+        .appt {
+            background-color: #ADD8E6;
+        }
+        .free {
+            background-color: #90EE90;
+        }
         </style>
     </head>
 
@@ -43,13 +52,21 @@
                 <tr>
                     <td>WHCorp</td>
                     {% for status in whcorp %}
-                    <td>{{status}}</td>
+                    <td
+                     {% if 'Free' in status %} class="free" {% endif %}
+                     {% if 'Appointment required' in status %} class="appt" {% endif %}
+                     {% if 'closed' in status %} class="closed" {% endif %}
+                    >{{status}}</td>
                     {% endfor %}
                 </tr>
                 <tr>
                     <td>American Storage</td>
                     {% for status in american_storage %}
-                    <td>{{status}}</td>
+                    <td
+                     {% if 'Free' in status %} class="free" {% endif %}
+                     {% if 'Appointment required' in status %} class="appt" {% endif %}
+                     {% if 'closed' in status %} class="closed" {% endif %}
+                    >{{status}}</td>
                     {% endfor %}
                 </tr>
             </tbody>
