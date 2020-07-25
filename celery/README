@@ -1,0 +1,10 @@
+Requires python3.6 and virtualenv.
+
+This project runs a celery worker every minute and scrapes from the warehouse sites. It has a dependency on Redis. Update the <project_root>/celery/importer.py and change the redis initialization to a Redis instance available to you or one that I've hosted at 23.239.4.75 on port 9992.
+
+Run (assuming at <project_root>/celery):
+
+virtualenv .venv -p python3
+source .venv/bin/activate
+pip install -r requirements.txt
+celery -B -A importer worker --loglevel=info 

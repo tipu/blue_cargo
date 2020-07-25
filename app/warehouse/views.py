@@ -1,7 +1,11 @@
 from django.shortcuts import render
+from django.conf import settings
+
 import redis
 
-redis = redis.Redis(host='localhost', port=6379, decode_responses=True)
+redis = redis.Redis(host=settings.REDIS_HOST,
+                    port=settings.REDIS_PORT,
+                    decode_responses=True)
 
 def home(request):
     #TODO: store in an agnostic way

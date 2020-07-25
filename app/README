@@ -1,0 +1,10 @@
+Requires python3.6 and virtualenv.
+
+This is a Django app that serves the scraped data via a webapp. It's a typical Django app that has a dependency on Redis. Update the <project_root>/app/app/settings.py and change `REDIS_HOST` and `REDIS_PORT` to a Redis instance available to you or one that I've hosted at 23.239.4.75 on port 9992.
+
+Run (assuming at <project_root>/app):
+
+virtualenv .venv -p python3
+source .venv/bin/activate
+pip install -r requirements.txt
+./manage.py runserver
