@@ -9,10 +9,10 @@ redis = redis.Redis(host='localhost', port=6379)
 app = Celery()
 app.config_from_object('celeryconfig')
 
-warehouses = [whcorp.WHCorpWarehouse(),
-              american_storage.AmericanStorageWarehouse()]
 @app.task
 def import_data():
+    warehouses = [whcorp.WHCorpWarehouse(),
+                  american_storage.AmericanStorageWarehouse()]
     for warehouse in warehouses:
         result = warehouse.run()
         key = 'warehouse_%s' % warehouse.id
@@ -20,5 +20,3 @@ def import_data():
         pipe.delete(key)
         pipe.lpush(key, *result)
         pipe.execute()
-
-
