@@ -1,0 +1,40 @@
+BlueCargo Challenges
+Senior Full-Stack Challenge #1
+
+CONTEXT
+
+We are an independent trucking company that delivers products across
+the United States. When products are damaged, we have to return them to
+any of the warehouses where our clients store their products.
+
+Our contracts say that we can return products to two warehouses: WHCorp
+and AmericanStorage. Each warehouse has different opening hours
+displayed on its website. At a given time, a warehouse can be fully
+accessible, open upon request (appointment), or closed.
+
+These opening hours change every week and can be updated anytime
+without being alerted. It has become more and more time consuming to
+check two websites manually.
+
+Websites:
+
+* WHCorp website: https://bluecargo.julink.fr/site1/index.html
+* AmericanStorage website: https://bluecargo.julink.fr/site2/index.html
+
+CHALLENGE
+
+    Create an app that scraps warehouses’ availabilities and return them in
+a single-window dashboard (front-end)
+
+    Rules
+
+    * The dashboard should show a double-entry table for days (Morning/Afternoon) and warehouses. The cells should contain two information: status (“Free”, “Appointment required”, “closed”) and time (different opening hours depending of the weekday and warehouse)
+    * The dashboard should refresh without having to refresh the page manually
+    * The dashboard should display instructions in PST (the two warehouses are located in California) but the back-end should store data in UTC to be able to scale to other states
+    * It should be easy to make evolutions and add more websites/clients in the future. If a warehouse does not use the status that are expected, please use what is the best practices to implement mapping files and business logic
+    * Create a repo and commit your code onto your personal GitHub account.  Please make iterations and do not create only one big commit
+    * The app should be deployed in Python Django and on a public Cloud (Heroku, AWS - that have a free tier you can use)
+    * Please provide a README with the procedure to run and test your application
+    * Try to design and implement your solution as you would do for real production code: clean, maintainable & tested. The idea is to build something we would be happy to contribute to - not a code full of dirty hacks!
+    * Bonus point: Please add at least one feature you would like to implement. That can help us figure out what you know, what you like, what your secret sauce is * Should you have any questions on the challenges, please email
+
