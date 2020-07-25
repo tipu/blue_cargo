@@ -19,5 +19,3 @@ def run():
     parser.feed(html)
 
     return parser.result
-
-print(run())
