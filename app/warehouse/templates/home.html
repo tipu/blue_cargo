@@ -1,0 +1,67 @@
+{% load static %}
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <meta http-equiv="refresh" content="30">
+        <meta charset="utf-8">
+
+        <title>Warehouse Availability</title>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="{% static "warehouse/style.css" %}" />
+        <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+        </style>
+        <script>
+            $( document ).ready(function() {
+                if($('#a').click(() => {
+                    alert('hi');
+                }));
+            });
+        </script>
+    </head>
+
+    <body>
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th colspan="2">Monday</th>
+                    <th colspan="2">Tuesday</th>
+                    <th colspan="2">Wednesday</th>
+                    <th colspan="2">Thursday</th>
+                    <th colspan="2">Friday</th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th>Morning</th>
+                    <th>Afternoon</th>
+                    <th>Morning</th>
+                    <th>Afternoon</th>
+                    <th>Morning</th>
+                    <th>Afternoon</th>
+                    <th>Morning</th>
+                    <th>Afternoon</th>
+                    <th>Morning</th>
+                    <th>Afternoon</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>WHCorp</td>
+                    {% for status in whcorp %}
+                    <td>{{status}}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>American Storage</td>
+                    {% for status in american_storage %}
+                    <td>{{status}}</td>
+                    {% endfor %}
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>
