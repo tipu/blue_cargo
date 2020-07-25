@@ -8,3 +8,7 @@ virtualenv .venv -p python3
 source .venv/bin/activate
 pip install -r requirements.txt
 celery -B -A importer worker --loglevel=info 
+
+Tests:
+Run (assuming at <project_root>/celery):
+ python -m unittest tests/parsers/test_base.py
